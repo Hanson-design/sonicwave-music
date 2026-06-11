@@ -174,3 +174,57 @@
           {title: 'God\'s Plan', src: 'https://www.youtube.com/embed/xpVfcZ0ZcFM'},
           {title: 'In My Feelings', src: 'https://www.youtube.com/embed/DRS_PpOrUZ4'},
           {title: 'Hotline Bling', src: 'https://www.youtube.com/embed/xCv3OxD-gs0'}
+        ]
+      },
+      nicki: {
+        name: 'Nicki Minaj',
+        description: 'Nicki Minaj is known for powerful verses, playful flows, and pop-rap crossover smash hits.',
+        tracks: [
+          {title: 'Starships', src: 'https://www.youtube.com/embed/SeIJmciN8mo'},
+          {title: 'Super Bass', src: 'https://www.youtube.com/embed/4Y1lZQqQkkI'},
+          {title: 'Anaconda', src: 'https://www.youtube.com/embed/LDZX4ooRsWs'}
+        ]
+      },
+      lilwayne: {
+        name: 'Lil Wayne',
+        description: 'Lil Wayne stands as a rap icon with unforgettable singles and a distinct, influential style.',
+        tracks: [
+          {title: 'Lollipop', src: 'https://www.youtube.com/embed/ZIM1HydF9UA'},
+          {title: 'A Milli', src: 'https://www.youtube.com/embed/YC-qlu7E0Jw'},
+          {title: 'How to Love', src: 'https://www.youtube.com/embed/ESr7mG2gHUE'}
+        ]
+      }
+    };
+
+    function showArtist(key) {
+      // Highlight selected artist
+      document.querySelectorAll('.artist-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      const selected = document.querySelector(`.artist-item[onclick="showArtist('${key}')"]`);
+      if (selected) selected.classList.add('active');
+
+      const artist = artists[key];
+      const container = document.getElementById('artist-info');
+      
+      container.innerHTML = `
+        <div class="artist-card">
+          <h2>${artist.name}</h2>
+          <p>${artist.description}</p>
+          ${artist.tracks.map(track => `
+            <div class="track">
+              <strong>${track.title}</strong>
+              <iframe src="${track.src}" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen></iframe>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // Show Drake by default
+    showArtist('drake');
+  </script>
+</body>
+</html>
