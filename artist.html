@@ -85,6 +85,24 @@
       border-radius: 16px;
       background: #000;
     }
+  .artist-item {
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.artist-item.active {
+    background-color: #e3f2fd;     /* Light blue background */
+    color: #1976d2;                /* Darker blue text */
+    border-left: 5px solid #1976d2; /* Optional accent */
+}
+
+.artist-item h2 {
+    transition: color 0.3s;
+}
+
+.artist-item.active h2 {
+    color: #1976d2;   /* Makes the name itself blue */
+}
   </style>
 </head>
 <body>
