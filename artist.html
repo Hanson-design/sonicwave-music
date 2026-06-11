@@ -8,101 +8,136 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #090909;
+      background: linear-gradient(135deg, #0a0a0a, #1a0033);
       color: #f5f5f5;
+      min-height: 100vh;
     }
+
     header {
-      padding: 32px 24px;
-      background: #121212;
+      padding: 40px 24px;
+      background: linear-gradient(to right, #1a0033, #4b0082);
       text-align: center;
-      border-bottom: 1px solid #222;
+      border-bottom: 3px solid #00ffcc;
+      box-shadow: 0 4px 20px rgba(0, 255, 204, 0.2);
     }
+
     header h1 {
       margin: 0 0 8px;
-      font-size: 2.1rem;
+      font-size: 2.4rem;
+      background: linear-gradient(to right, #00ffcc, #ff00ff, #00ccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     header p {
       margin: 0;
-      color: #bbb;
+      color: #ddd;
+      font-size: 1.1rem;
     }
+
     main {
       max-width: 1080px;
-      margin: 32px auto;
+      margin: 40px auto;
       padding: 0 24px 48px;
     }
+
     .artist-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
     }
+
     .artist-item {
-      background: #181818;
-      border: 1px solid #2d2d2d;
-      border-radius: 18px;
-      padding: 24px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .artist-item:hover {
-      transform: translateY(-4px);
-      background: #202020;
-    }
-    .artist-item h2 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-    }
-    .artist-item p {
-      margin: 0;
-      color: #bbb;
-    }
-    .artist-card {
-      background: #141414;
-      border: 1px solid #2c2c2c;
+      background: linear-gradient(145deg, #1f0033, #2a0a4a);
+      border: 2px solid #4b0082;
       border-radius: 20px;
       padding: 28px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(75, 0, 130, 0.3);
     }
+
+    .artist-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      border-color: #00ffcc;
+      box-shadow: 0 15px 35px rgba(0, 255, 204, 0.4);
+      background: linear-gradient(145deg, #2a0a4a, #4b0082);
+    }
+
+    .artist-item h2 {
+      margin: 0 0 10px;
+      font-size: 1.55rem;
+      transition: color 0.3s;
+    }
+
+    .artist-item p {
+      margin: 0;
+      color: #ccc;
+    }
+
+    /* Active State - Vibrant Blue/Purple */
+    .artist-item.active {
+      background: linear-gradient(145deg, #00ccff, #4b0082);
+      border-color: #00ffcc;
+      color: white;
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
+      transform: scale(1.05);
+    }
+
+    .artist-item.active h2 {
+      color: #fff;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    }
+
+    .artist-card {
+      background: linear-gradient(135deg, #1a0033, #2a0a4a);
+      border: 2px solid #00ffcc;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(0, 255, 204, 0.25);
+    }
+
     .artist-card h2 {
       margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 2.1rem;
+      background: linear-gradient(to right, #00ffcc, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     .artist-card p {
-      color: #ccc;
-      line-height: 1.6;
+      color: #ddd;
+      line-height: 1.7;
+      font-size: 1.1rem;
     }
+
     .track {
-      margin-top: 24px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #4b0082;
     }
+
     .track strong {
       display: block;
-      margin-bottom: 10px;
-      color: #fff;
+      margin-bottom: 12px;
+      color: #00ffcc;
+      font-size: 1.2rem;
     }
+
     iframe {
       width: 100%;
-      min-height: 190px;
+      min-height: 220px;
       border: none;
-      border-radius: 16px;
+      border-radius: 18px;
       background: #000;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     }
-  .artist-item {
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.artist-item.active {
-    background-color: #e3f2fd;     /* Light blue background */
-    color: #1976d2;                /* Darker blue text */
-    border-left: 5px solid #1976d2; /* Optional accent */
-}
-
-.artist-item h2 {
-    transition: color 0.3s;
-}
-
-.artist-item.active h2 {
-    color: #1976d2;   /* Makes the name itself blue */
-}
+    /* Extra vibrant touches */
+    .artist-item:nth-child(1) { border-color: #00ccff; }
+    .artist-item:nth-child(2) { border-color: #ff00ff; }
+    .artist-item:nth-child(3) { border-color: #ffcc00; }
   </style>
 </head>
 <body>
@@ -110,6 +145,7 @@
     <h1>Music Artist Selector</h1>
     <p>Pick an artist to explore real tracks from Drake, Nicki Minaj, and Lil Wayne.</p>
   </header>
+
   <main>
     <section class="artist-list">
       <article class="artist-item" onclick="showArtist('drake')">
@@ -125,8 +161,10 @@
         <p>Legendary rapper behind Tha Carter era classics.</p>
       </article>
     </section>
+
     <section id="artist-info"></section>
   </main>
+
   <script>
     const artists = {
       drake: {
@@ -136,45 +174,3 @@
           {title: 'God\'s Plan', src: 'https://www.youtube.com/embed/xpVfcZ0ZcFM'},
           {title: 'In My Feelings', src: 'https://www.youtube.com/embed/DRS_PpOrUZ4'},
           {title: 'Hotline Bling', src: 'https://www.youtube.com/embed/xCv3OxD-gs0'}
-        ]
-      },
-      nicki: {
-        name: 'Nicki Minaj',
-        description: 'Nicki Minaj is known for powerful verses, playful flows, and pop-rap crossover smash hits.',
-        tracks: [
-          {title: 'Starships', src: 'https://www.youtube.com/embed/SeIJmciN8mo'},
-          {title: 'Super Bass', src: 'https://www.youtube.com/embed/4Y1lZQqQkkI'},
-          {title: 'Anaconda', src: 'https://www.youtube.com/embed/LDZX4ooRsWs'}
-        ]
-      },
-      lilwayne: {
-        name: 'Lil Wayne',
-        description: 'Lil Wayne stands as a rap icon with unforgettable singles and a distinct, influential style.',
-        tracks: [
-          {title: 'Lollipop', src: 'https://www.youtube.com/embed/ZIM1HydF9UA'},
-          {title: 'A Milli', src: 'https://www.youtube.com/embed/YC-qlu7E0Jw'},
-          {title: 'How to Love', src: 'https://www.youtube.com/embed/ESr7mG2gHUE'}
-        ]
-      }
-    };
-    function showArtist(key) {
-      const artist = artists[key];
-      const container = document.getElementById('artist-info');
-      container.innerHTML = `
-        <div class="artist-card">
-          <h2>${artist.name}</h2>
-          <p>${artist.description}</p>
-          ${artist.tracks.map(track => `
-            <div class="track">
-              <strong>${track.title}</strong>
-              <iframe src="${track.src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          `).join('')}
-        </div>
-      `;
-    }
-    showArtist('drake');
-  </script>
-</body>
-</html>
-
